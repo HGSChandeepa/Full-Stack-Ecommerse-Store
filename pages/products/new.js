@@ -44,7 +44,7 @@ export default function NewProduct() {
         <label htmlFor="productPrice"> Product Price</label>
         <input
           onChange={(e) => setProductPrice(e.target.value)}
-          type="text"
+          type="number"
           name={productPrice}
           placeholder="price"
           value={productPrice}
