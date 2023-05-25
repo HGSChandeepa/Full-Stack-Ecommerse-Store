@@ -1,5 +1,5 @@
 import Layout from "../components/layout";
 
-export default function Home() {
-  return <Layout data={"settings"} />;
+export default function Settings() {
+  return <Layout>dsds</Layout>;
 }

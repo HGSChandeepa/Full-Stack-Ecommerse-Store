@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input,
+textarea,
+select {
+  @apply p-1 border-2  w-full before:border-gray-300 bg-white h-10 pr-16 rounded-lg text-sm focus:outline-none;
+}
+
+input:focus {
+  @apply border-blue-800;
+}
+textarea:focus {
+  @apply border-blue-800;
+}
+select:focus {
+  @apply border-blue-800;
+}
+
+h1 {
+  @apply my-5 font-medium text-2xl text-blue-600;
+}
+label {
+  @apply text-gray-600 text-sm;
+}
+.button-primary {
+  @apply bg-blue-600 text-white px-4 py-2 rounded-lg text-sm;
+}
+.button-primary:hover {
+  @apply bg-blue-800;
+}

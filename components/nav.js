@@ -1,13 +1,19 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Nav() {
   //styles
-  const inactiveLinks = " flex gap-2 ";
+  const inactiveLinks = " flex gap-2 p-2 ";
   const activeLinks = " flex gap-2 bg-white text-gray-800 rounded-md p-2 w-40 ";
+  //to toggle active links
+  const router = useRouter();
+  const { pathname } = router;
+
   return (
     <div className=" text-white p-5 ">
       <aside className=" ">
+        {/* LOGO */}
         <Link href={"/"} className=" flex gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -28,8 +34,10 @@ function Nav() {
 
         {/* navigation */}
         <nav className=" flex flex-col mt-10 gap-8 ">
-          <Link href={"/"} className={activeLinks}>
-            {" "}
+          <Link
+            href={"/"}
+            className={pathname === "/" ? activeLinks : inactiveLinks}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -46,7 +54,10 @@ function Nav() {
             </svg>{" "}
             Dashboard
           </Link>
-          <Link href={"/products"} className={inactiveLinks}>
+          <Link
+            href={"/products"}
+            className={pathname == "/products" ? activeLinks : inactiveLinks}
+          >
             {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +75,10 @@ function Nav() {
             </svg>{" "}
             Products
           </Link>
-          <Link href={"/orders"} className={inactiveLinks}>
+          <Link
+            href={"/orders"}
+            className={pathname == "/orders" ? activeLinks : inactiveLinks}
+          >
             {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +96,10 @@ function Nav() {
             </svg>
             Orders
           </Link>
-          <Link href={"/settings"} className={inactiveLinks}>
+          <Link
+            href={"/settings"}
+            className={pathname == "/settings" ? activeLinks : inactiveLinks}
+          >
             {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
