@@ -1,5 +1,5 @@
 import { mongooseConnect } from "../../lib/mongoose";
-import { Product } from "../../models/products";
+import { Products } from "../../models/products";
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -7,11 +7,15 @@ export default async function handler(req, res) {
   // Connect to the database
   await mongooseConnect();
 
+  if (method === "GET") {
+    res.json(await Products.find());
+  }
+
   if (method === "POST") {
     const { productName, productDesc, productPrice } = req.body;
 
     // Create a new product
-    const newProduct = new Product({
+    const newProduct = new Products({
       productName,
       productDesc,
       productPrice,

@@ -7,8 +7,5 @@ const ProductSchema = new mongoose.Schema({
   productPrice: { type: Number, default: 0, required: true },
 });
 
-export const Product = models.Product || model("Product", ProductSchema);
-
-
-
-
+//this checks that the model is already craeted or not
+export const Products = models.Product || model("Products", ProductSchema);
